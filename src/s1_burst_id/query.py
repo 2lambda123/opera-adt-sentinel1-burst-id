@@ -46,7 +46,7 @@ def query_asf(output_query_file, snwe, start_date, end_date, sat):
             end = end_date,
             output='json')
 
-    r = requests.get(baseurl, params=data)
+    r = requests.get(baseurl, params=data, timeout=60)
     with open(output_query_file, 'w') as j:
         j.write(r.text)
 
